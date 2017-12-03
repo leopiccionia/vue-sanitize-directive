@@ -1,0 +1,15 @@
+{
+  "name": "v-sanitize",
+  "version": "1.0.0",
+  "description": "Vue directive for HTML sanitization.",
+  "keywords": ["vue", "sanitization", "v-sanitize"],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Piccioni de Almeida",
+  "license": "ISC",
+  "dependencies": {
+    "sanitize-html": "^1.16.1"
+  }
+}
