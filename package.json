@@ -34,13 +34,4 @@
     "url": "https://github.com/leopiccionia/vue-sanitize-directive/issues"
   },
   "homepage": "https://github.com/leopiccionia/vue-sanitize-directive#readme",
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
 }
