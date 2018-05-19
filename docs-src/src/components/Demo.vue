@@ -73,7 +73,7 @@
 
 <script>
 import Vue from 'vue'
-import VueSanitize, { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from '../../../src/index'
+import VueSanitize, { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from 'vue-sanitize-directive'
 Vue.use(VueSanitize)
 
 const html = `
