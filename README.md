@@ -10,7 +10,7 @@
 
 ## Setup
 
-Start getting it with NPM or Yarn.
+Start getting it with NPM or Yarn ([see package](https://www.npmjs.com/package/vue-sanitize-directive)).
 
 ```bash
 npm install vue-sanitize-directive

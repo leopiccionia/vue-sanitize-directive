@@ -10,7 +10,7 @@
     </div>
 
     <h2>Setup</h2>
-    <p>Start getting it with NPM or Yarn.</p>
+    <p>Start getting it with NPM or Yarn (<a href="https://www.npmjs.com/package/vue-sanitize-directive" target="_blank">see package</a>).</p>
     <div class="editor">
       <p>npm install vue-sanitize-directive</p>
       <p class="gray"># Alternatively: yarn install vue-sanitize-directive</p>
@@ -66,7 +66,7 @@
     </div>
 
     <footer>
-      <p>&copy; 2018 Leonardo Piccioni de Almeida. <a href="#">See on GitHub</a>.</p>
+      <p>&copy; 2018 Leonardo Piccioni de Almeida. <a href="https://github.com/leopiccionia/vue-sanitize-directive">See on GitHub</a>.</p>
     </footer>
   </div>
 </template>
