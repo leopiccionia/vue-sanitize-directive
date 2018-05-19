@@ -24,7 +24,7 @@ import VueSanitize from 'vue-sanitize-directive'
 Vue.use(VueSanitize)
 ```
 
-## Usage ([**demos**]())
+## Usage ([**demos**](https://leopiccionia.github.io/vue-sanitize-directive))
 
 ### Strip all tags (`.strip` modifier)
 
