@@ -6,7 +6,7 @@
     <p><a href="https://vuejs.org/" target="_blank">Vue</a>'s default <code>v-text</code> is HTML-insensitive, while <code>v-html</code> doesn't perform sanitization by default.</p>
     <p><code>v-sanitize</code> is a Vue directive for HTML sanitization, powered by the flexible <a href="https://www.npmjs.com/package/sanitize-html" target="_blank">sanitize-html</a>. The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a <code>sanitize-html</code> whitelist (<a href="https://github.com/punkave/sanitize-html" target="_blank">know more here</a>) and the second being the string to be sanitized.</p>
     <div class="editor" v-pre>
-      <p>&lt;<span class="red">div</span> <span class="orange">v-sanitize</span>=<span class="green">"unsafe_html"</span>&gt;&lt;<span class="red">/div</span>&gt;</p>
+      <p>&lt;<span class="red">div</span> <span class="orange">v-sanitize</span>=<span class="green">"unsafe_html"</span>&gt;&lt;/<span class="red">div</span>&gt;</p>
     </div>
 
     <h2>Setup</h2>
