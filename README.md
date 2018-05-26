@@ -14,7 +14,7 @@ Start getting it with NPM or Yarn ([see package](https://www.npmjs.com/package/v
 
 ```bash
 npm install vue-sanitize-directive
-# Alternatively: yarn install vue-sanitize-directive
+# Alternatively: yarn add vue-sanitize-directive
 ```
 
 Then install it like any other Vue plugin. This will provide the `v-sanitize` directive globally.

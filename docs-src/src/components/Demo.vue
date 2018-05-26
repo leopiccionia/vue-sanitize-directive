@@ -13,7 +13,7 @@
     <p>Start getting it with NPM or Yarn (<a href="https://www.npmjs.com/package/vue-sanitize-directive" target="_blank">see package</a>).</p>
     <div class="editor">
       <p>npm install vue-sanitize-directive</p>
-      <p class="gray"># Alternatively: yarn install vue-sanitize-directive</p>
+      <p class="gray"># Alternatively: yarn add vue-sanitize-directive</p>
     </div>
     <p>Then install it like any other Vue plugin. This will provide the <code>v-sanitize</code> directive globally.</p>
     <div class="editor">
