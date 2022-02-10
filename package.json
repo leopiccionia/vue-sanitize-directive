@@ -16,12 +16,13 @@
   },
   "author": "Leonardo Piccioni de Almeida",
   "license": "ISC",
-  "dependencies": {
-    "sanitize-html": "^1.17.0"
-  },
   "devDependencies": {
+    "sanitize-html": "^2.7.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
+  },
+  "peerDependencies": {
+    "sanitize-html": "^2.7.0"
   },
   "directories": {
     "doc": "docs"
