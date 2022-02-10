@@ -2,7 +2,7 @@
 
 [Vue](https://vuejs.org)'s default `v-text` is HTML-insensitive, while `v-html` doesn't perform sanitization by default.
 
-`v-sanitize` is a Vue directive for HTML sanitization, powered by the flexible [sanitize-html](https://www.npmjs.com/package/sanitize-html). The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a `sanitize-html` whitelist ([know more here](https://github.com/punkave/sanitize-html)) and the second being the string to be sanitized.
+`v-sanitize` is a Vue directive for HTML sanitization, powered by the flexible [sanitize-html](https://www.npmjs.com/package/sanitize-html). The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a `sanitize-html` allowlist ([know more here](https://github.com/punkave/sanitize-html)) and the second being the string to be sanitized.
 
 ```html
 <div v-sanitize="unsafe_html"></div>
@@ -14,7 +14,6 @@ Start getting it with NPM or Yarn ([see package](https://www.npmjs.com/package/v
 
 ```bash
 npm install vue-sanitize-directive
-# Alternatively: yarn add vue-sanitize-directive
 ```
 
 Then install it like any other Vue plugin. This will provide the `v-sanitize` directive globally.

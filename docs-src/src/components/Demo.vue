@@ -4,7 +4,7 @@
     <h1>v-sanitize</h1>
 
     <p><a href="https://vuejs.org/" target="_blank">Vue</a>'s default <code>v-text</code> is HTML-insensitive, while <code>v-html</code> doesn't perform sanitization by default.</p>
-    <p><code>v-sanitize</code> is a Vue directive for HTML sanitization, powered by the flexible <a href="https://www.npmjs.com/package/sanitize-html" target="_blank">sanitize-html</a>. The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a <code>sanitize-html</code> whitelist (<a href="https://github.com/punkave/sanitize-html" target="_blank">know more here</a>) and the second being the string to be sanitized.</p>
+    <p><code>v-sanitize</code> is a Vue directive for HTML sanitization, powered by the flexible <a href="https://www.npmjs.com/package/sanitize-html" target="_blank">sanitize-html</a>. The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a <code>sanitize-html</code> allowlist (<a href="https://github.com/punkave/sanitize-html" target="_blank">know more here</a>) and the second being the string to be sanitized.</p>
     <div class="editor" v-pre>
       <p>&lt;<span class="red">div</span> <span class="orange">v-sanitize</span>=<span class="green">"unsafe_html"</span>&gt;&lt;/<span class="red">div</span>&gt;</p>
     </div>
@@ -47,13 +47,13 @@
     <p>Allows all HTML tags, not performing sanitization. For all effects, it's a replacement for <code>v-html</code>.</p>
     <div class="demo" v-sanitize.nothing="html"></div>
 
-    <h3>Custom whitelist</h3>
+    <h3>Custom allowlists</h3>
     <p>Edit the box below, as JSON. Read <a href="https://github.com/punkave/sanitize-html" target="_blank">sanitize-html docs</a> for more details.</p>
     <div class="table">
       <div class="row">
         <div class="col">
           <textarea rows="5" v-model="editable_filter"></textarea>
-          <button @click="update_filter()">Update whitelist</button>
+          <button @click="update_filter()">Update allowlist</button>
         </div>
         <div class="col">
           <textarea rows="5" v-model="editable_html"></textarea>
