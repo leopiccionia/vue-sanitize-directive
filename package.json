@@ -12,16 +12,12 @@
     "sanitize",
     "v-sanitize"
   ],
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/vue-sanitize-directive.umd.js",
+  "module": "dist/vue-sanitize-directive.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.umd.js"
-    },
-    "./ssr": {
-      "import": "./dist/ssr.esm.js",
-      "require": "./dist/ssr.umd.js"
+      "import": "./dist/vue-sanitize-directive.esm.js",
+      "require": "./dist/vue-sanitize-directive.umd.js"
     }
   },
   "scripts": {
