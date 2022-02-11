@@ -1,6 +1,6 @@
 {
   "name": "vue-sanitize-directive",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Vue directive for HTML sanitization.",
   "author": {
     "name": "Leonardo Piccioni de Almeida",
