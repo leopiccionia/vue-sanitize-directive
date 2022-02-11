@@ -20,7 +20,12 @@ Then install it like any other Vue plugin. This will provide the `v-sanitize` di
 
 ```js
 import VueSanitize from 'vue-sanitize-directive'
+
+// Vue 2.x
 Vue.use(VueSanitize)
+
+// Vue 3.x
+app.use(VueSanitize)
 ```
 
 ## Usage ([**demos**](https://leopiccionia.github.io/vue-sanitize-directive))
@@ -50,6 +55,7 @@ Removes most tags, keeping only inline formatting and `<br/>` tags.
 ```
 
 ### Allow all tags (`.nothing` modifier)
+
 Allows all HTML tags, not performing sanitization. For all effects, it's a replacement for `v-html`.
 
 ```html
