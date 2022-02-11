@@ -2,6 +2,10 @@
   "name": "vue-sanitize-directive",
   "version": "0.1.0",
   "description": "Vue directive for HTML sanitization.",
+  "author": {
+    "name": "Leonardo Piccioni de Almeida",
+    "email": "leopiccionia@gmail.com"
+  },
   "keywords": [
     "vue",
     "sanitization",
@@ -24,7 +28,6 @@
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Leonardo Piccioni de Almeida",
   "license": "MIT",
   "dependencies": {
     "sanitize-html": "^2.7.0"
@@ -34,7 +37,6 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "rollup": "^2.67.2",
-    "rollup-plugin-polyfill-node": "^0.8.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "directories": {
