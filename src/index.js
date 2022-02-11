@@ -1,55 +1,33 @@
 import sanitizeHtml from 'sanitize-html'
 
-export const FILTER_BASIC = sanitizeHtml.defaults
+import { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP, resolveDirectiveArguments } from './shared'
 
-export const FILTER_INLINE = {
-  allowedTags: ['a', 'b', 'br', 'code', 'em', 'i', 'span', 'strike', 'strong', 'u'],
-  allowedAttributes: {
-    a: ['href', 'target'],
-    span: ['style']
-  },
-  selfClosing: ['br'],
-  allowedSchemes: ['ftp', 'http', 'https', 'mailto'],
-  parser: {
-    decodeEntities: true
+function clientSideSanitization (el, { modifiers, oldValue, value }) {
+  if (value !== oldValue) {
+    const { config, input } = resolveDirectiveArguments(modifiers, value)
+
+    el.innerHTML = sanitizeHtml(input, config)
   }
 }
 
-export const FILTER_NOTHING = {
-  allowedTags: false,
-  allowedAttributes: false
-}
+function serverSideSanitization ({ modifiers, value }) {
+  const { config, input } = resolveDirectiveArguments(modifiers, value)
 
-export const FILTER_STRIP = {
-  allowedTags: [],
-  allowedAttributes: []
+  return {
+    innerHTML: sanitizeHtml(input, config)
+  }
 }
 
 export default {
-  install(Vue, { name = 'sanitize' } = {}) {
-    Vue.directive(name, function(el, binding) {
-      if (binding.value !== binding.oldValue) {
-        if (Array.isArray(binding.value)) {
-          el.innerHTML = sanitizeHtml(binding.value[1], binding.value[0])
-        }
-        else {
-          if (binding.modifiers.strip) {
-            el.innerHTML = sanitizeHtml(binding.value, FILTER_STRIP)
-          }
-          else if (binding.modifiers.basic) {
-            el.innerHTML = sanitizeHtml(binding.value)
-          }
-          else if (binding.modifiers.inline) {
-            el.innerHTML = sanitizeHtml(binding.value, FILTER_INLINE)
-          }
-          else if (binding.modifiers.nothing) {
-            el.innerHTML = sanitizeHtml(binding.value, FILTER_NOTHING)
-          }
-          else {
-            el.innerHTML = sanitizeHtml(binding.value)
-          }
-        }
-      }
+  install (app, { name = 'sanitize' } = {}) {
+    app.directive(name, {
+      getSSRProps: serverSideSanitization,
+      inserted: clientSideSanitization,
+      mounted: clientSideSanitization,
+      update: clientSideSanitization,
+      updated: clientSideSanitization,
     })
   }
 }
+
+export { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP }

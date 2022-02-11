@@ -19,11 +19,13 @@ const config = entries.map((slug) => {
         input: `src/${slug}.js`,
         output: [
             {
+                exports: 'named',
                 file: `dist/${slug}.umd.js`,
                 format: 'umd',
                 name: 'VueSanitizeDirective',
             },
             {
+                exports: 'named',
                 file: `dist/${slug}.esm.js`,
                 format: 'es',
             },
