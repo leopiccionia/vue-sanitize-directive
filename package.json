@@ -25,7 +25,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Leonardo Piccioni de Almeida",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "sanitize-html": "^2.7.0"
   },
