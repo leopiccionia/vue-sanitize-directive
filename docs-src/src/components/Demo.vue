@@ -1,13 +1,18 @@
 <template>
   <div class="container">
-    <img class="logo" src="../assets/logo.svg">
+    <img class="logo" src="../assets/logo.svg" height="150" width="150" alt="">
     <h1>v-sanitize</h1>
 
     <p><a href="https://vuejs.org/" target="_blank">Vue</a>'s default <code>v-text</code> is HTML-insensitive, while <code>v-html</code> doesn't perform sanitization by default.</p>
-    <p><code>v-sanitize</code> is a Vue directive for HTML sanitization, powered by the flexible <a href="https://www.npmjs.com/package/sanitize-html" target="_blank">sanitize-html</a>. The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a <code>sanitize-html</code> allowlist (<a href="https://github.com/punkave/sanitize-html" target="_blank">know more here</a>) and the second being the string to be sanitized.</p>
+    <p><code>v-sanitize</code> is a Vue directive for HTML sanitization, powered by the flexible <a href="https://www.npmjs.com/package/sanitize-html" target="_blank">sanitize-html</a>. The directive can receive either a string, that will undergo a partial sanitization if no modifier is present, or an array of two elements, the first being a <code>sanitize-html</code> allowlist (<a href="https://github.com/apostrophecms/sanitize-html" target="_blank">know more here</a>) and the second being the string to be sanitized.</p>
     <pre class="editor" v-pre>
       <code>&lt;<span class="red">div</span> <span class="orange">v-sanitize</span>="<span class="green">unsafe_html</span>"&gt;&lt;/<span class="red">div</span>&gt;</code>
     </pre>
+
+    <div class="warning">
+      <h2>Warning</h2>
+      <p>The validation and sanitization of user-provided input should be performed on the back-end, before storing it on the database. You should resort to client-side input sanitization only if you don't control the back-end, e.g., consuming content from an external API.</p>
+    </div>
 
     <h2>Setup</h2>
     <p>Start getting it with NPM or Yarn (<a href="https://www.npmjs.com/package/vue-sanitize-directive" target="_blank">see package</a>).</p>
@@ -50,15 +55,15 @@
     <div class="demo" v-sanitize.nothing="html"></div>
 
     <h3>Custom allowlists</h3>
-    <p>Edit the box below, as JSON. Read <a href="https://github.com/punkave/sanitize-html" target="_blank">sanitize-html docs</a> for more details.</p>
+    <p>Edit the box below, as JSON. Read <a href="https://github.com/apostrophecms/sanitize-html" target="_blank">sanitize-html docs</a> for more details.</p>
     <div class="table">
       <div class="row">
         <div class="col">
-          <textarea rows="5" v-model="editableFilter"></textarea>
+          <textarea aria-label="Allowlist" rows="5" v-model="editableFilter"></textarea>
           <button @click="updateFilter()">Update allowlist</button>
         </div>
         <div class="col">
-          <textarea rows="5" v-model="editableHtml"></textarea>
+          <textarea aria-label="HTML input" rows="5" v-model="editableHtml"></textarea>
           <button @click="updateHtml()">Update HTML</button>
         </div>
         <div class="col">
@@ -77,7 +82,7 @@
 import { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from 'vue-sanitize-directive'
 
 const html = `
-  <iframe src="https://www.example.org"></iframe>
+  <iframe src="https://www.openstreetmap.org/export/embed.html" title="Example page"></iframe>
   <p>This is a <strong>test</strong>.</p>
 `
 
@@ -196,6 +201,16 @@ code
     color: #F07178
   .white
     color: #A6ACCD
+
+.warning
+  background-color: #FECDD3
+  border-radius: $border-radius
+  color: #881337
+  margin: 20px
+  padding: 0.1px
+
+  h2
+    color: #9F1239
 
 footer
   background-color: $brand-primary
