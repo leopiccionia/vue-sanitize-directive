@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "vue-sanitize-directive docs",
   "author": {
     "name": "Leonardo Piccioni de Almeida",
@@ -13,12 +13,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25",
+    "vue": "^3.2.37",
     "vue-sanitize-directive": "file:.."
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.2.0",
-    "stylus": "^0.56.0",
-    "vite": "^2.8.0"
+    "@vitejs/plugin-vue": "^3.0.1",
+    "stylus": "^0.58.1",
+    "vite": "^3.0.4"
   }
 }
