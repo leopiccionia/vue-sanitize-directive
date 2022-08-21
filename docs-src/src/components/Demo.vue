@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from 'vue-sanitize-directive'
+import { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from 'vue-sanitize-directive/vue3'
 
 const html = `
   <iframe src="https://www.openstreetmap.org/export/embed.html" title="Example page"></iframe>
