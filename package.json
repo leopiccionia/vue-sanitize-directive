@@ -13,6 +13,8 @@
     "v-sanitize"
   ],
   "type": "module",
+  "main": "./dist/vue3/vue-sanitize-directive.cjs",
+  "module": "./dist/vue3/vue-sanitize-directive.js",
   "exports": {
     ".": {
       "import": "./dist/vue3/vue-sanitize-directive.js",
