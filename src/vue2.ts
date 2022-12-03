@@ -1,6 +1,6 @@
 import { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP, resolveDirectiveArguments, sanitizeHtml } from './common'
 import type { SanitizeDirectiveValue } from './common'
-import type { Directive, DirectiveBinding, DirectiveOptions, VNode, VueConstructor } from 'vue2'
+import type { Directive, DirectiveBinding, VNode, VueConstructor } from 'vue2'
 
 function clientSideSanitization (el: HTMLElement, { modifiers, oldValue, value }: DirectiveBinding<SanitizeDirectiveValue>) {
   if (value !== oldValue) {
@@ -29,7 +29,7 @@ export const directive: Directive<HTMLElement, SanitizeDirectiveValue> = {
 
 export default {
   install (app: VueConstructor, { name = 'sanitize' } = {}) {
-    app.directive(name, directive as DirectiveOptions)
+    app.directive(name, directive)
   }
 }
 
