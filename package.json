@@ -30,7 +30,7 @@
     }
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup --minify"
   },
   "license": "MIT",
   "dependencies": {
