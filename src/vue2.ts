@@ -33,4 +33,6 @@ export default {
   }
 }
 
-export { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP }
+export { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP, sanitizeHtml }
+export type { SanitizeDirectiveValue }
+
