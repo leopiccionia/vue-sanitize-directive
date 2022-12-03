@@ -34,14 +34,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "sanitize-html": "^2.7.1"
+    "sanitize-html": "^2.7.3"
   },
   "devDependencies": {
     "@types/sanitize-html": "^2.6.2",
-    "tsup": "^6.2.2",
-    "typescript": "^4.7.4",
-    "vue2": "npm:vue@^2.7.9",
-    "vue3": "npm:vue@^3.2.37"
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.3",
+    "vue2": "npm:vue@^2.7.14",
+    "vue3": "npm:vue@^3.2.45"
   },
   "directories": {
     "doc": "docs"
