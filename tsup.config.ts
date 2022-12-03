@@ -15,4 +15,5 @@ export default defineConfig({
   globalName: 'VueSanitizeDirective',
   splitting: false,
   target: 'ES2017',
+  treeshake: true,
 })
