@@ -22,17 +22,16 @@ export function VueSanitizeDirectiveSSR (vnode: VNode, { modifiers, value }: Dir
   vnode.data.domProps.innerHTML = sanitizeHtml(input, config)
 }
 
-export const directive: Directive<HTMLElement, SanitizeDirectiveValue> = {
+export const vSanitize: Directive<HTMLElement, SanitizeDirectiveValue> = {
   inserted: clientSideSanitization,
   update: clientSideSanitization,
 }
 
 export default {
   install (app: VueConstructor, { name = 'sanitize' } = {}) {
-    app.directive(name, directive)
+    app.directive(name, vSanitize)
   }
 }
 
 export { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP, sanitizeHtml }
 export type { SanitizeDirectiveValue }
-

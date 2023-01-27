@@ -18,7 +18,7 @@ function serverSideSanitization ({ modifiers, value }: DirectiveBinding<Sanitize
   }
 }
 
-export const directive: Directive<HTMLElement, SanitizeDirectiveValue> = {
+export const vSanitize: Directive<HTMLElement, SanitizeDirectiveValue> = {
   getSSRProps: serverSideSanitization,
   mounted: clientSideSanitization,
   updated: clientSideSanitization,
@@ -26,7 +26,7 @@ export const directive: Directive<HTMLElement, SanitizeDirectiveValue> = {
 
 export default {
   install (app: App, { name = 'sanitize' } = {}) {
-    app.directive(name, directive)
+    app.directive(name, vSanitize)
   }
 }
 
