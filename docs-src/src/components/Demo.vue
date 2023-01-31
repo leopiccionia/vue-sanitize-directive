@@ -62,6 +62,15 @@ function updateHtml () {
       <code><span class="gray">// Vue 3.x</span></code>
       <code><span class="white">app</span>.<span class="blue">use</span>(<span class="white">VueSanitize</span>)</code>
     </pre>
+    <p>Alternatively, the directive can be imported manually:</p>
+    <pre class="editor">
+      <code>import { <span class="white">vSanitize</span> } from '<span class="green">vue-sanitize-directive</span>'</code><br/>
+      <code class="multiline">export default {<br/>
+        &nbsp;&nbsp;&nbsp;<span class="blue">directives</span>: {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">sanitize</span>: <span class="white">vSanitize</span>,<br/>
+        &nbsp;&nbsp;&nbsp;},<br/>
+      }</code>
+    </pre>
 
     <h2>Demos</h2>
     <div class="demo" v-sanitize="[filter, html]"></div>
@@ -176,6 +185,11 @@ code
     background-color: transparent
     display: block
     font-family: 'Courier New', 'Courier', monospace
+
+    &.multiline
+      margin-inline: auto
+      text-align: left
+      width: fit-content
 
   p
     text-align: left
