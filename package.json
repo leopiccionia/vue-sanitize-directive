@@ -13,20 +13,14 @@
     "v-sanitize"
   ],
   "type": "module",
-  "main": "./dist/vue3/vue-sanitize-directive.cjs",
-  "module": "./dist/vue3/vue-sanitize-directive.js",
+  "main": "./dist/vue-sanitize-directive.cjs",
+  "module": "./dist/vue-sanitize-directive.js",
+  "types": "./dist/vue-sanitize-directive.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue3/vue-sanitize-directive.js",
-      "require": "./dist/vue3/vue-sanitize-directive.cjs"
-    },
-    "./vue2": {
-      "import": "./dist/vue2/vue-sanitize-directive.js",
-      "require": "./dist/vue2/vue-sanitize-directive.cjs"
-    },
-    "./vue3": {
-      "import": "./dist/vue3/vue-sanitize-directive.js",
-      "require": "./dist/vue3/vue-sanitize-directive.cjs"
+      "types": "./dist/vue-sanitize-directive.d.ts",
+      "import": "./dist/vue-sanitize-directive.js",
+      "require": "./dist/vue-sanitize-directive.cjs"
     }
   },
   "scripts": {
@@ -34,14 +28,17 @@
   },
   "license": "MIT",
   "dependencies": {
-    "sanitize-html": "^2.7.3"
+    "sanitize-html": "^2.8.1"
   },
   "devDependencies": {
-    "@types/sanitize-html": "^2.6.2",
+    "@types/sanitize-html": "^2.8.0",
     "tsup": "^6.5.0",
-    "typescript": "^4.9.3",
-    "vue2": "npm:vue@^2.7.14",
-    "vue3": "npm:vue@^3.2.45"
+    "typescript": "^4.9.4",
+    "vue": "^3.2.45",
+    "vue-demi": "^0.13.11"
+  },
+  "peerDependencies": {
+    "vue-demi": "^0.13.11"
   },
   "directories": {
     "doc": "docs"

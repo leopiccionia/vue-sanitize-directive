@@ -1,3 +1,38 @@
+<script setup>
+import { ref, shallowRef } from 'vue'
+import { vSanitize, FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from 'vue-sanitize-directive'
+
+const _html = `
+  <iframe src="https://www.openstreetmap.org/export/embed.html" title="Example page"></iframe>
+  <p>This is a <strong>test</strong>.</p>
+`
+const filter = shallowRef(FILTER_BASIC)
+const customFilter = shallowRef(FILTER_BASIC)
+const editableFilter = ref(JSON.stringify(FILTER_BASIC, null, 2))
+const html = ref(_html)
+const customHtml = ref(_html)
+const editableHtml = ref(_html)
+
+function filterBasic () {
+  filter.value = FILTER_BASIC
+}
+function filterInline () {
+  filter.value = FILTER_INLINE
+}
+function filterNothing () {
+  filter.value = FILTER_NOTHING
+}
+function filterStrip () {
+  filter.value = FILTER_STRIP
+}
+function updateFilter () {
+  customFilter.value = JSON.parse(editableFilter.value)
+}
+function updateHtml () {
+  customHtml.value = editableHtml.value
+}
+</script>
+
 <template>
   <div class="container">
     <img class="logo" src="../assets/logo.svg" height="150" width="150" alt="">
@@ -31,7 +66,7 @@
     <h2>Demos</h2>
     <div class="demo" v-sanitize="[filter, html]"></div>
     <div>
-      <button @click="filterString()">Remove all tags</button>
+      <button @click="filterStrip()">Remove all tags</button>
       <button @click="filterBasic()">Remove unsafe</button>
       <button @click="filterInline()">Allow inline</button>
       <button @click="filterNothing()">Allow all tags</button>
@@ -73,52 +108,10 @@
     </div>
 
     <footer>
-      <p>&copy; 2018-2022 Leonardo Piccioni de Almeida. <a href="https://github.com/leopiccionia/vue-sanitize-directive">See on GitHub</a>.</p>
+      <p>&copy; 2018-2023 Leonardo Piccioni de Almeida. <a href="https://github.com/leopiccionia/vue-sanitize-directive">See on GitHub</a>.</p>
     </footer>
   </div>
 </template>
-
-<script>
-import { FILTER_BASIC, FILTER_INLINE, FILTER_NOTHING, FILTER_STRIP } from 'vue-sanitize-directive/vue3'
-
-const html = `
-  <iframe src="https://www.openstreetmap.org/export/embed.html" title="Example page"></iframe>
-  <p>This is a <strong>test</strong>.</p>
-`
-
-export default {
-  data () {
-    return {
-      filter: FILTER_BASIC,
-      customFilter: FILTER_BASIC,
-      editableFilter: JSON.stringify(FILTER_BASIC, null, 2),
-      html,
-      customHtml: html,
-      editableHtml: html,
-    }
-  },
-  methods: {
-    filterBasic() {
-      this.filter = FILTER_BASIC
-    },
-    filterInline() {
-      this.filter = FILTER_INLINE
-    },
-    filterNothing() {
-      this.filter = FILTER_NOTHING
-    },
-    filterString() {
-      this.filter = FILTER_STRIP
-    },
-    updateFilter() {
-      this.customFilter = JSON.parse(this.editableFilter)
-    },
-    updateHtml() {
-      this.customHtml = this.editableHtml
-    },
-  },
-}
-</script>
 
 <style lang="stylus">
 $border-radius = 5px

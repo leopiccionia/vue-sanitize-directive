@@ -4,8 +4,7 @@ export default defineConfig({
   clean: true,
   dts: true,
   entry: {
-    'vue2/vue-sanitize-directive': 'src/vue2.ts',
-    'vue3/vue-sanitize-directive': 'src/vue3.ts',
+    'vue-sanitize-directive': 'src/index.ts',
   },
   esbuildOptions (config) {
     config.charset = 'utf8'
