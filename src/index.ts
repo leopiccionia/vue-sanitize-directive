@@ -81,7 +81,7 @@ export function VueSanitizeDirectiveSSR (vnode: VNode, { modifiers, value }: Dir
   vnode.data.domProps.innerHTML = sanitizeHtml(input, config)
 }
 
-type VueSanitizeDirective = Directive<HTMLElement, SanitizeDirectiveValue> & Record<string, unknown>
+export type VueSanitizeDirective = Directive<HTMLElement, SanitizeDirectiveValue> & Record<string, unknown>
 
 export const vSanitize: VueSanitizeDirective = {
   getSSRProps: serverSideSanitization,
