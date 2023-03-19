@@ -26,6 +26,7 @@ export const FILTER_INLINE: SanitizeOptions = {
 
 export const FILTER_NOTHING: SanitizeOptions = {
   allowedTags: false,
+  allowVulnerableTags: true,
   allowedAttributes: false,
 }
 
