@@ -13,6 +13,6 @@ export default defineConfig({
   format: ['cjs', 'esm', 'iife'],
   globalName: 'VueSanitizeDirective',
   splitting: false,
-  target: 'ES2017',
+  target: 'es2017',
   treeshake: true,
 })
