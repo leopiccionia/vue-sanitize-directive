@@ -1,8 +1,12 @@
 import sanitizeHtml from 'sanitize-html'
+import type { IOptions as SanitizeOptions } from 'sanitize-html'
+import type { App, Directive, DirectiveBinding, VNode } from 'vue-demi'
 
-export const FILTER_BASIC = sanitizeHtml.defaults
+export type SanitizeDirectiveValue = string | [SanitizeOptions, string]
 
-export const FILTER_INLINE = {
+export const FILTER_BASIC: SanitizeOptions = sanitizeHtml.defaults
+
+export const FILTER_INLINE: SanitizeOptions = {
   allowedTags: [
     'a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'cite', 'code', 'data', 'dfn',
     'em', 'i', 'kbd', 'mark', 'q',
@@ -20,17 +24,18 @@ export const FILTER_INLINE = {
   },
 }
 
-export const FILTER_NOTHING = {
+export const FILTER_NOTHING: SanitizeOptions = {
   allowedTags: false,
-  allowedAttributes: false
+  allowVulnerableTags: true,
+  allowedAttributes: false,
 }
 
-export const FILTER_STRIP = {
+export const FILTER_STRIP: SanitizeOptions = {
   allowedTags: [],
-  allowedAttributes: []
+  allowedAttributes: {},
 }
 
-function resolveDirectiveArguments (modifiers, input) {
+function resolveDirectiveArguments (modifiers: Record<string, boolean>, input: SanitizeDirectiveValue) {
   if (Array.isArray(input)) {
     return { config: input[0], input: input[1] }
   } else if (modifiers.strip) {
@@ -46,7 +51,7 @@ function resolveDirectiveArguments (modifiers, input) {
   }
 }
 
-function clientSideSanitization (el, { modifiers, oldValue, value }) {
+function clientSideSanitization (el: HTMLElement, { modifiers, oldValue, value }: DirectiveBinding<SanitizeDirectiveValue>) {
   if (value !== oldValue) {
     const { config, input } = resolveDirectiveArguments(modifiers, value)
 
@@ -54,7 +59,7 @@ function clientSideSanitization (el, { modifiers, oldValue, value }) {
   }
 }
 
-function serverSideSanitization ({ modifiers, value }) {
+function serverSideSanitization ({ modifiers, value }: DirectiveBinding<SanitizeDirectiveValue>) {
   const { config, input } = resolveDirectiveArguments(modifiers, value)
 
   return {
@@ -66,23 +71,29 @@ function serverSideSanitization ({ modifiers, value }) {
  * @experimental
  * Implementation for Vue 2.x SSR. Don't use it client-side.
  */
-export function VueSanitizeDirectiveSSR (vnode, { modifiers, value }) {
+export function VueSanitizeDirectiveSSR (vnode: VNode, { modifiers, value }: DirectiveBinding<SanitizeDirectiveValue>) {
   const { config, input } = resolveDirectiveArguments(modifiers, value)
 
-  vnode.data.domProps = vnode.data.domProps || {}
+  /* @ts-ignore */
+  vnode.data = vnode.data ?? {}
+  /* @ts-ignore */
+  vnode.data.domProps = vnode.data.domProps ?? {}
+  /* @ts-ignore */
   vnode.data.domProps.innerHTML = sanitizeHtml(input, config)
 }
 
-export const directive = {
+export const vSanitize = {
   getSSRProps: serverSideSanitization,
   inserted: clientSideSanitization,
   mounted: clientSideSanitization,
   update: clientSideSanitization,
   updated: clientSideSanitization,
-}
+} as Directive<HTMLElement, SanitizeDirectiveValue>
 
 export default {
-  install (app, { name = 'sanitize' } = {}) {
-    app.directive(name, directive)
+  install (app: App, { name = 'sanitize' } = {}) {
+    app.directive(name, vSanitize)
   }
 }
+
+export { sanitizeHtml }

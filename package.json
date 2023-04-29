@@ -12,23 +12,30 @@
     "sanitize",
     "v-sanitize"
   ],
-  "main": "dist/vue-sanitize-directive.umd.js",
-  "module": "dist/vue-sanitize-directive.esm.js",
+  "type": "module",
+  "main": "./dist/vue-sanitize-directive.cjs",
+  "module": "./dist/vue-sanitize-directive.js",
+  "types": "./dist/vue-sanitize-directive.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue-sanitize-directive.esm.js",
-      "require": "./dist/vue-sanitize-directive.umd.js"
+      "types": "./dist/vue-sanitize-directive.d.ts",
+      "import": "./dist/vue-sanitize-directive.js",
+      "require": "./dist/vue-sanitize-directive.cjs"
     }
   },
   "scripts": {
-    "build": "vite build"
+    "build": "tsup --minify"
   },
   "license": "MIT",
   "dependencies": {
-    "sanitize-html": "^2.7.1"
+    "sanitize-html": "^2.10.0"
   },
   "devDependencies": {
-    "vite": "^3.0.4"
+    "@types/sanitize-html": "^2.9.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "vue": "^3.2.47",
+    "vue-demi": "^0.13.11"
   },
   "directories": {
     "doc": "docs"

@@ -32,6 +32,18 @@ Vue.use(VueSanitize)
 app.use(VueSanitize)
 ```
 
+Alternatively, the directive can be imported manually:
+
+```js
+import { vSanitize } from 'vue-sanitize-directive'
+
+export default {
+  directives: {
+    sanitize: vSanitize
+  }
+}
+```
+
 ## Usage ([**demos**](https://leopiccionia.github.io/vue-sanitize-directive))
 
 ### Strip all tags (`.strip` modifier)
