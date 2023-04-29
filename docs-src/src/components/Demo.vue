@@ -193,11 +193,6 @@ code
     display: block
     font-family: 'Courier New', 'Courier', monospace
 
-    &.multiline
-      margin-inline: auto
-      text-align: left
-      width: fit-content
-
   p
     text-align: left
 
