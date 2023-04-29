@@ -82,15 +82,13 @@ export function VueSanitizeDirectiveSSR (vnode: VNode, { modifiers, value }: Dir
   vnode.data.domProps.innerHTML = sanitizeHtml(input, config)
 }
 
-export type VueSanitizeDirective = Directive<HTMLElement, SanitizeDirectiveValue> & Record<string, unknown>
-
-export const vSanitize: VueSanitizeDirective = {
+export const vSanitize = {
   getSSRProps: serverSideSanitization,
   inserted: clientSideSanitization,
   mounted: clientSideSanitization,
   update: clientSideSanitization,
   updated: clientSideSanitization,
-}
+} as Directive<HTMLElement, SanitizeDirectiveValue>
 
 export default {
   install (app: App, { name = 'sanitize' } = {}) {
